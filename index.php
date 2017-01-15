@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Author: Aing Ragunathan 
+Date:    2017/01/12
+
+COMP 4711 Internet Software Dev
+Lab 1
 -->
 <html>
     <head>
@@ -13,6 +15,7 @@ and open the template in the editor.
         <?php
             include('Student.php');
 
+            #create an array of students, add 2 students and myself
             $students = array();
             
             $first = new Student();
@@ -35,10 +38,22 @@ and open the template in the editor.
             $second->add_grade(80);
             $second->add_grade(50);
             $students['a456'] = $second;
+            
+            $second = new Student();
+            $second->surname = "Aing";
+            $second->first_name = "Ragunathan";
+            $second->add_email('home','aragunathan@bcit.com');
+            $second->add_grade(80);
+            $second->add_grade(85);
+            $second->add_grade(60);
+            $students['a00756949'] = $second;
+            
+            #sort the students to make the list look better
+            ksort($students);
 
+            #print out the list of students
             foreach($students as $student)
                 echo $student->toString();
-
         ?>  
     </body>
 </html>
